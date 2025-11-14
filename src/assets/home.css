@@ -1,0 +1,432 @@
+﻿h1, h2, h3, nav, footer {
+   font-family: Georgia, Cambria, "Times New Roman", serif;
+}
+body {
+   font-family: "Lucida Sans", Verdana, Arial, sans-serif;
+   font-size: 80%;
+   font-weight: bolder;
+}
+
+/* TODO: add a background image here somehow */
+.background-image-blur-whitewash {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-image: url(images/background.jpg);
+   background-size: cover;
+   background-position: center;
+   filter: blur(15px) contrast(0.2) brightness(1.7);
+   z-index: -1;
+}
+
+#character-table {
+   width: 100%;
+   border-collapse: collapse;
+   padding: 10px;
+   text-align: center;
+}
+
+
+body{
+   padding: 0;
+   margin: 0;
+}
+header {
+   background: #1f1f1f;
+   color: white;
+   text-align: center;
+   padding: 2px 0 0 0 ;
+}
+header h1 {
+   font-size: 60px;
+   margin: 10px;
+}
+
+
+.main{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: flex-start;   /*todo*/
+   padding: 20px 0;
+   min-height: 800px;
+}
+aside {
+   border: 1px solid #000000;
+   background-color: #fff;
+   box-shadow: 5px 5px #aaa;
+   padding: 20px;
+   width: 248px;
+   animation: slideIn .8s forwards;
+   min-height: 396px;
+}
+#aside-filters{
+   transform: translateX(-100%);
+}
+#aside-pc{
+   transform: translateX(100%);
+}
+@keyframes slideIn {
+   100%{
+      transform: translateX(0);
+   }
+}
+
+aside > :first-child{
+   margin: 0 0 12px 22px;
+}
+aside .line {
+   background-color: #e8e8e8;
+   width: 150px;
+   height: 2px;
+}
+
+/**
+previous comparisons on the right side
+ */
+.pc-record{
+   display: flex;
+   justify-content: space-between;
+   cursor: pointer;
+   transition: background-color .4s;
+}
+.pc-record:hover{
+   background-color: #ccc;
+}
+.pc-record > div{
+   pointer-events: none;
+   padding: 10px;
+}
+.pc-record > div:last-child{
+   text-align: right;
+}
+
+/**
+filter box on the left side
+ */
+.filter{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 16px 10px 16px 0;
+}
+:root {
+   --filter-width: 120px;
+   --button-width: 28px;
+}
+.filter-box{
+   width: var(--filter-width);
+   height: 28px;
+   position: relative;
+}
+.filter-line{
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   margin: auto;
+   height: 2px;
+   width: 100%;
+   background-color: #e8e8e8;
+}
+.filter-button{
+   width: 28px;
+   height: 28px;
+   border-radius: 50%;
+   font-size: 12px;
+   border: 2px solid #000;
+   text-align: center;
+   line-height: 26px;
+   position: absolute;
+   background-color: #fff;
+   user-select: none;
+   cursor: pointer;
+   box-sizing: border-box;
+}
+.filter-button-1{
+   left: calc(0% - var(--button-width) / 2);
+}
+.filter-button-2{
+   left: calc(100% - var(--button-width) / 2);
+}
+.filter-inner-line{
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   margin: auto;
+   height: 2px;
+   width: calc(100% - 20px);
+   left: calc(0% + 10px);
+   background-color: #000;
+   pointer-events: none;
+}
+
+#sec-table{
+   max-width: 800px;
+}
+#search-form{
+   padding: 10px;
+}
+#search-input{
+   width: 100%;
+   padding: 5px;
+   border: 2px solid #000;
+   font-size: 1.3em;
+   box-sizing: border-box;
+   margin: 0 0 20px;
+}
+#character-table thead{
+   background-color: #f2f2f2;
+   border-bottom: 2px solid #000;
+}
+#character-table thead tr th:first-child{
+   min-width: 180px;
+}
+#character-table tr{
+   margin-top: 10px;
+}
+#character-table tbody tr {
+   border-bottom: 2px solid #ccc;
+   opacity: 0;
+   transform: scale(0);
+   overflow: hidden;
+}
+@keyframes textFadeIn {
+   100%{
+      opacity: 1;
+      transform: scale(1);
+   }
+}
+#character-table th, #character-table td{
+   padding: 16px 10px 10px 10px;
+}
+#character-table tr > th:first-child, #character-table tr > td:first-child{
+   text-align: left;
+}
+.checkbox{
+   width: 15px;
+   height: 15px;
+   border: 2px solid #000000;
+   display: inline-block;
+   opacity: 0;
+   transition: opacity .4s;
+   font-size: 16px;
+   padding: 3px;
+   cursor: pointer;
+}
+.checkbox.checked{
+   opacity: 1;
+}
+td:has(.checkbox):hover .checkbox{
+   opacity: 1;
+}
+.checkbox span {
+   pointer-events: none;
+   user-select: none;
+   transition: width .4s;
+   display: block;
+   height: 100%;
+   width: 0;
+   overflow: hidden;
+}
+
+
+#sec-comp{
+   padding: 40px;
+   background-color: #1f1f1f;
+   color: #fff;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: flex-end;
+}
+.character{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 302px;
+}
+.character .name{
+   text-align: center;
+   font-size: 28px;
+   margin-bottom: 20px;
+}
+.character .pfp{
+   width: 250px;
+   height: 250px;
+   border-radius: 50%;
+   background-color: #fff;
+   text-align: center;
+   font-size: 80px;
+   line-height: 250px;
+   color: #000;
+}
+.vs{
+   font-size: 60px;
+   height: 250px;
+   line-height: 250px;
+}
+
+#sec-result{
+   padding: 40px;
+   display: flex;
+   justify-content: center;
+}
+#sec-result .board{
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   background-color: #1F1F1F;
+}
+#sec-result .board > div{
+   display: flex;
+   flex-direction: column;
+}
+.board .attr{
+   color: white;
+   font-size: 24px;
+}
+.board > div > div{
+   padding: 2px;
+   height: 46px;
+   line-height: 50px;
+}
+.board svg {
+   height: 100%;
+}
+.board-0, .board-1{
+   width: 300px;
+   color: white;
+   font-size: 30px;
+}
+.comparing .board-0 {
+   background-color: #00550C;
+}
+.comparing .board-1 {
+   background-color: #540000;
+}
+
+
+@media (max-width: 800px) {
+   #aside-pc {
+      display: none;
+   }
+   #character-table tr :not(:first-child):not(:last-child){
+      display: none;
+   }
+   .main {
+      flex-direction: row-reverse;
+      position: relative;
+      align-items: flex-start;
+   }
+   #aside-filters {
+      margin-top: 84px;
+   }
+   #sec-table{
+      width: 50%;
+   }
+   .board-0, .board-1{
+      width: 200px;
+   }
+   .character .pfp{
+      width: 200px;
+      height: 200px;
+      line-height: 200px;
+   }
+   .vs{
+      height: 200px;
+      line-height: 200px;
+   }
+   #character-table thead{
+      display: none;
+   }
+   #character-table {
+      margin-top: 50px;
+   }
+   #search-input{
+      position: absolute;
+      width: 90%;
+      margin: auto;
+      left: 0;
+      right: 0;
+   }
+}
+
+@media (max-width: 600px) {
+   .board-0, .board-1{
+      width: 120px;
+   }
+}
+
+@media (max-width: 500px) {
+   .character .pfp{
+      width: 140px;
+      height: 140px;
+      line-height: 140px;
+   }
+   .vs{
+      font-size: 40px;
+      height: 140px;
+      line-height: 140px;
+   }
+   #character-table th, #character-table td {
+      padding: 12px 5px 5px 5px;
+   }
+   aside {
+      padding: 10px;
+   }
+   header {
+      padding: 20px 0;
+   }
+   header p {
+      display: none;
+   }
+   header h1 {
+      font-size: 13vw;
+   }
+   #sec-result .board .board-1{
+      display: none;
+   }
+   #sec-result {
+      padding: 0;
+   }
+   #sec-result .board {
+      width: 100%;
+   }
+   .board-0{
+      flex: 1
+   }
+   .board > .attr > div {
+      text-align: right;
+      padding: 2px 20px;
+   }
+   #search-form {
+      padding: 1px;
+   }
+}
+
+@media (max-width: 370px) {
+   #character-table td {
+      font-size: 11px;
+   }
+   .filter span {
+      font-size: 11px;
+   }
+
+   .character .pfp{
+      width: 120px;
+      height: 120px;
+      line-height: 120px;
+   }
+   .vs{
+      font-size: 30px;
+      height: 120px;
+      line-height: 120px;
+   }
+   .character .name {
+      font-size: 7vw;
+   }
+   .board > .attr > div{
+      font-size: 6vw;
+   }
+}
